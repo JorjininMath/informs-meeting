@@ -108,10 +108,8 @@
   }
 
   function paperHtml(t) {
-    const paper = t.paper;
     return `<div class="paper"><span class="tag">${esc(paperLabels[t.paperCategory])}</span>
       ${t.paperSource ? `<a href="${esc(t.paperSource.url)}" target="_blank" rel="noopener noreferrer">论文</a>` : ''}
-      ${paper.evidence ? `<details><summary>匹配依据</summary><p>${esc(paper.evidence)}</p><p>${esc(paper.checkedAt || '')}</p><p>${[...new Set((paper.searches || []).map((search) => search.provider))].map(esc).join(' · ')}</p>${(paper.matches || []).map((match) => `<p><b>${esc(match.candidate.title)}</b><br>${esc(match.candidate.authors.join('，'))}<br>${esc(match.candidate.year || '')} ${esc(match.candidate.venue || '')}</p>`).join('')}</details>` : ''}
       </div>`;
   }
 
